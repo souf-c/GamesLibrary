@@ -1,0 +1,14 @@
+<%- include('partials/header'); %>
+
+<div class="login-contain">
+    <h2>Register</h2>
+    <form action="/register" method="post">
+        <label for="email">Email</label>
+        <input type="email" name="register" autocomplete="off" class="login">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="login">
+        <input type="submit" value="Login" class="searchButton" id="loginbtn">
+    </form>
+</div>
+
+<%- include('partials/footer'); %>

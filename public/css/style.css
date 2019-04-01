@@ -46,7 +46,7 @@ li a:hover{
     width: 21em;
     margin: 3em auto;
 }
-input[type="text"]{
+.search, .login{
     outline: none;
     font-size: 1.25em;
     font-family: 'Quicksand', sans-serif;
@@ -57,7 +57,7 @@ input[type="text"]{
     border: 1px solid #d3d3d3;
     padding-left: .5em;
 }
-#searchButton{
+.searchButton{
     background-color: #222;
     color: #fff;
     font-family: 'Quicksand', sans-serif;
@@ -129,6 +129,11 @@ h1{
     font-size: 3em;
     font-weight: 700;
 }
+h2{
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 3em;
+}
 .gameimg{
     margin-top: 3em;
     margin-right: 5em;
@@ -141,4 +146,19 @@ h1{
     float: left;
     margin-top: 2em;
     font-size: 1.5em;
+}
+.login-contain{
+    width: 30em;
+    margin: 5em auto;
+}
+.login{
+    display: block;
+}
+label{
+    display: block;
+    margin: 1em 0;
+}
+
+#loginbtn{
+    margin: 2em 0;
 }
