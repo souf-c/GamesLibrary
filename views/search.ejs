@@ -1,0 +1,21 @@
+<%- include('partials/header'); %>
+<div class="container">
+    <div class="games">
+            <% gamesList.forEach(gameList => { %>
+                <div class="game">
+                    <form action="/newentry" method="post">
+                        
+                            <img src="<%= gameList.gameImage %>" alt="game image">
+                        
+                        <div class="title"><%= gameList.gameName %></div>
+                        <input type="hidden" name="gameName" value="<%= gameList.gameName %>"></input>
+                        <input type="hidden" name="gameImage" value="<%= gameList.gameImage %>"></input>
+                        <input type="hidden" name="gamedesc" value="<%= gameList.gameDesc %>"></input>
+                        <input type="submit" value="Add" class="addButton">
+                    </form>
+                </div>
+            <% }); %>
+    </div>
+</div>
+
+<%- include('partials/footer'); %>

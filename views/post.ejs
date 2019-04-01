@@ -1,0 +1,13 @@
+<%- include('partials/header'); %>
+
+<div class="container">
+    <h1><%= title %></h1>
+    <img src="<%= image %>" alt="game image" class="gameimg">
+    <p class="gamedesc"><%= desc %></p>
+    <form action="/deletepost" method="post">
+        <input type="hidden" name="gameid" value="<%= id %>"></input>
+        <input type="submit" value="Remove" class="removeButton">
+    </form>
+</div>
+
+<%- include('partials/footer'); %>

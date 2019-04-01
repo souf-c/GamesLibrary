@@ -1,0 +1,28 @@
+{
+  "name": "gameslibrary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souf-c/GamesLibrary.git"
+  },
+  "author": "souf-c",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/souf-c/GamesLibrary/issues"
+  },
+  "homepage": "https://github.com/souf-c/GamesLibrary#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.20",
+    "request": "^2.88.0"
+  }
+}
