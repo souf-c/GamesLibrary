@@ -32,6 +32,9 @@ nav ul{
     justify-content: flex-end;
     align-items: center;
 }
+#logout{
+    justify-content: space-between;
+}
 li{
     padding: 1em;
 }
@@ -161,4 +164,12 @@ label{
 
 #loginbtn{
     margin: 2em 0;
+}
+.homebox{
+    width: 21em;
+    margin: 0 auto;
+}
+#login-btn, #register-btn{
+    margin: 0 2em;
+    padding: .6em;
 }
