@@ -43,7 +43,8 @@ passport.deserializeUser(User.deserializeUser());
 const gameSchema = new Schema({
     title: String,
     description: String,
-    image: String
+    image: String,
+    user: String
 });
 const Game = mongoose.model('Game', gameSchema);
 
@@ -105,7 +106,8 @@ app.post('/logout', (req, res) => {
 
 app.get('/game', (req, res) => {
     if(req.isAuthenticated()){
-        Game.find((err, posts)=> {
+        const userId = req.user._id;
+        Game.find({user: userId},(err, posts)=> {
             res.render('game', {
                 posts: posts
             });
@@ -154,7 +156,8 @@ app.post('/newentry', (req, res)=> {
         const gameName = req.body.gameName;
         const gameImage = req.body.gameImage;
         const gamedesc = req.body.gamedesc;
-        const gameEntry = new Game({title: gameName, description: gamedesc, image: gameImage});
+        const userId = req.user._id;
+        const gameEntry = new Game({title: gameName, description: gamedesc, image: gameImage, user: userId});
         gameEntry.save();
         res.redirect('/game');
     }else{
