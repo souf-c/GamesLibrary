@@ -172,7 +172,7 @@ app.get('/:title', (req, res) => {
             games.forEach(game => {
                 const storedGame = _.lowerCase(game.title);
                 if (storedGame === gameTitle) {
-                    res.render('post', {title: game.title, image: game.image, desc: game.description, id: game._id })
+                    res.render('post', {title: game.title, image: game.image, desc: game.description })
                 }
             });
         });
