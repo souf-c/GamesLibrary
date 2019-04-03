@@ -13,7 +13,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const _ = require('lodash');
 
 
-mongoose.connect('mongodb://localhost:27017/gamesDB', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 app.set('view engine', 'ejs');
 app.use(express.static(`public/`));
