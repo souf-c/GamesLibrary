@@ -13,7 +13,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const _ = require('lodash');
 
 
-mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/gamesDB', {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 app.set('view engine', 'ejs');
 app.use(express.static(`public/`));
@@ -158,8 +158,8 @@ app.post('/newentry', (req, res)=> {
         const gamedesc = req.body.gamedesc;
         const userId = req.user._id;
         const gameEntry = new Game({title: gameName, description: gamedesc, image: gameImage, user: userId});
-        gameEntry.save();
-        res.redirect('/game');
+            gameEntry.save();
+        res.redirect('/');
     }else{
         res.redirect('/login');
     }
@@ -167,14 +167,9 @@ app.post('/newentry', (req, res)=> {
 
 app.get('/:title', (req, res) => {
     if(req.isAuthenticated()){
-        const gameTitle = _.lowerCase(req.params.title);
-        Game.find((err, games)=> {
-            games.forEach(game => {
-                const storedGame = _.lowerCase(game.title);
-                if (storedGame === gameTitle) {
-                    res.render('post', {title: game.title, image: game.image, desc: game.description, id: game._id })
-                }
-            });
+        const gameTitle = req.params.title;
+        Game.findOne({title: gameTitle},(err, game)=> {
+            res.render('post', {title: game.title, image: game.image, desc: game.description, id: game._id });
         });
     }else{
         res.redirect('/login');
