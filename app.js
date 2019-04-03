@@ -10,7 +10,6 @@ const Schema = mongoose.Schema;
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
-const _ = require('lodash');
 
 
 mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true});
