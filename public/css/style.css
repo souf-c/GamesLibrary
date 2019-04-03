@@ -173,3 +173,11 @@ label{
     margin: 0 2em;
     padding: .6em;
 }
+footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #222222;
+    color: #fff;
+    padding: 1em;
+}
