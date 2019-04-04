@@ -13,6 +13,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 
 mongoose.connect(process.env.MONGODB_SRV, {useNewUrlParser: true});
+// mongoose.connect('mongodb://localhost/gamesDB', {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 app.set('view engine', 'ejs');
 app.use(express.static(`public/`));
@@ -167,7 +168,8 @@ app.post('/newentry', (req, res)=> {
 app.get('/:title', (req, res) => {
     if(req.isAuthenticated()){
         const gameTitle = req.params.title;
-        Game.findOne({title: gameTitle},(err, game)=> {
+        const userId = req.user._id;
+        Game.findOne({title: gameTitle, user: userId},(err, game)=> {
             res.render('post', {title: game.title, image: game.image, desc: game.description, id: game._id });
         });
     }else{
